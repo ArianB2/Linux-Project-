@@ -1,19 +1,18 @@
 #! /bin/bash
-#! /bin/bash
 
 # create a datestamped filename for the raw wttr data:
 today=$(date +%Y%m%d)
 weather_report=raw_data_$today
 
 # download today's weather report from wttr.in:
-city=Tirane
+city=city_area
 curl wttr.in/$city --output $weather_report
 
 # use command substitution to store the current day, month, and year in corresponding shell variables:
-hour=$(TZ='Albania/Tirane' date -u +%H)
-day=$(TZ='Albania/Tirane' date -u +%d)
-month=$(TZ='Albania/Tirane' date +%m)
-year=$(TZ='Albania/Tirane' date +%Y)
+hour=$(TZ='Country/City' date -u +%H)
+day=$(TZ='Country/City' date -u +%d)
+month=$(TZ='Country/City' date +%m)
+year=$(TZ='Country/City' date +%Y)
 
 # extract all lines containing temperatures from the weather report and write to file
 grep °C $weather_report > temperatures.txt
