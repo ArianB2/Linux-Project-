@@ -1,6 +1,5 @@
 year	month	day	obs_tmp	fc_temp	accuracy	accuracy_range
 #! /bin/bash
-
 yesterday_fc=$(tail -2 rx_poc.log | head -1 | cut -d " " -f5)
 today_temp=$(tail -1 rx_poc.log | cut -d " " -f4)
 accuracy=$(($yesterday_fc-$today_temp))
